@@ -3,7 +3,7 @@ import Grid from "@mui/material/Grid2";
 // Import Grid2
 import SumOfAttacks from "./components/AttacksSum";
 import AttackSumCard from "./components/AttacksSum/Card";
-import AttackVolumeCard from "./components/AttackVolume/AttackVolumeCard";
+import AttackVolumeCard from "./components/MaximumAttackVolumes/Card";
 import DurationCard from "./components/DurationCard/DurationCard";
 import MitigatedAttacks from "./components/MitigatedAttacks";
 import BillionPackets from "./components/AttacksSum/BillionPackets";
@@ -33,7 +33,7 @@ export default function HomePage() {
                 <MitigatedAttacks />
               </Grid>
               <Grid size={{ xs: 12, lg: 8 }}>
-                <AttackVolumeCard maxVolume={831.6} unit="Gbps" />
+                <AttackVolumeCard />
               </Grid>
             </Box>
           </Grid>

@@ -2,6 +2,7 @@
 import React from "react";
 import AttackSumCard from "./Card";
 import ApiService from "@/services/api-service";
+import convertPacketsToBillion from "../utils/convertPacketsToBillion";
 
 const { getPPSsum } = new ApiService();
 
@@ -11,7 +12,9 @@ const BillionPackets = async () => {
   return (
     <AttackSumCard
       value={
-        !("error" in response) ? (response.sum / 1e9).toFixed(2) : "Loading..."
+        !("error" in response)
+          ? convertPacketsToBillion(response.sum)
+          : "Loading..."
       }
       unit="Billion Packets"
     />
