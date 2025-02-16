@@ -1,12 +1,13 @@
 import { Box, Container, Typography } from "@mui/material";
 import Grid from "@mui/material/Grid2";
 // Import Grid2
-import MitigatedAttacks from "./components/MitigatedAttacks";
+import SumOfAttacks from "./components/AttacksSum";
+import AttackSumCard from "./components/AttacksSum/Card";
 import AttackVolumeCard from "./components/AttackVolume/AttackVolumeCard";
 import DurationCard from "./components/DurationCard/DurationCard";
-import AttackSumCard from "./components/AttacksSum/Card";
-import AttacksSumContainer from "./components/AttacksSum/Container";
-import SumOfAttacks from "./components/AttacksSum";
+import MitigatedAttacks from "./components/MitigatedAttacks";
+import BillionPackets from "./components/AttacksSum/BillionPackets";
+import PetaBytes from "./components/AttacksSum/PetaBytes";
 
 export default function HomePage() {
   return (
@@ -41,10 +42,10 @@ export default function HomePage() {
           <Grid size={12}>
             <SumOfAttacks>
               <Grid size={{ sm: 12, md: 12, lg: 6 }}>
-                <AttackSumCard value={66455.45} unit="Billion Packets" />
+                <BillionPackets />
               </Grid>
               <Grid size={{ sm: 12, md: 12, lg: 6 }}>
-                <AttackSumCard value={68.72} unit="Peta Bytes" />
+                <PetaBytes />
               </Grid>
             </SumOfAttacks>
           </Grid>

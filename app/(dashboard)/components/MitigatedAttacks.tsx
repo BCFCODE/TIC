@@ -1,3 +1,4 @@
+"use server";
 // components/MitigatedAttacks.tsx
 import ApiService from "@/services/api-service";
 import { Card, CardContent, Typography } from "@mui/material";
@@ -15,7 +16,7 @@ export default async function MitigatedAttacks() {
         color: "#fff",
         p: 2,
         minWidth: 275,
-        minHeight: '100%',
+        minHeight: "100%",
         borderRadius: 2,
         boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.5)",
         border: "1px solid rgba(255, 255, 255, 0.1)",
@@ -26,7 +27,7 @@ export default async function MitigatedAttacks() {
         <Typography variant="h3" sx={{ color: "#6ee7b7", fontWeight: "bold" }}>
           {"count" in response ? response.count : null}
         </Typography>
-        <Typography variant="body2" component='div'>
+        <Typography variant="body2" component="div">
           Number Of{" "}
           <Typography component="span" style={{ color: "#6ee7b7" }}>
             Mitigated

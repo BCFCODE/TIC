@@ -1,7 +1,7 @@
 import { Card, CardContent, Typography, Box } from "@mui/material";
 
 interface Props {
-  value: number;
+  value: string;
   unit: string;
 }
 
@@ -36,7 +36,7 @@ export default function AttackSumCard({ value, unit }: Props) {
               fontWeight: "bold",
             }}
           >
-            {value.toLocaleString(undefined, { minimumFractionDigits: 2 })}
+            {value}
           </Typography>
         </Box>
 
