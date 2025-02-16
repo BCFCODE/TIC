@@ -36,6 +36,15 @@ class ApiService {
       .catch(() => ({
         error: `Failed to fetch attack volumes (top-five-lrl)`,
       }));
+
+  getDuration = async (): Promise<{ duration: number } | { error: string }> =>
+    await fetch(`${this.endpoint}/duration`, {
+      cache: "no-store",
+    })
+      .then((res) => res.json())
+      .catch(() => ({
+        error: `Failed to fetch duration`,
+      }));
 }
 
 export default ApiService;

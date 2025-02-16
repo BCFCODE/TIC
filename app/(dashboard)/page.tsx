@@ -4,7 +4,7 @@ import Grid from "@mui/material/Grid2";
 import SumOfAttacks from "./components/AttacksSum";
 import AttackSumCard from "./components/AttacksSum/Card";
 import AttackVolumeCard from "./components/MaximumAttackVolumes/Card";
-import DurationCard from "./components/DurationCard/DurationCard";
+import DurationCard from "./components/DurationCard";
 import MitigatedAttacks from "./components/MitigatedAttacks";
 import BillionPackets from "./components/AttacksSum/BillionPackets";
 import PetaBytes from "./components/AttacksSum/PetaBytes";
@@ -52,7 +52,7 @@ export default function HomePage() {
 
           {/* Third Row */}
           <Grid size={12}>
-            <DurationCard days={56} hours={15} minutes={55} />
+            <DurationCard />
           </Grid>
         </Grid>
       </Container>

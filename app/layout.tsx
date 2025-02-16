@@ -18,7 +18,7 @@ const NAVIGATION: Navigation = [
     icon: <HomeIcon />,
   },
   {
-    segment: "orders",
+    segment: "map",
     title: "Map",
     icon: <MapIcon />,
   },
