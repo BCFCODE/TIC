@@ -1,10 +1,11 @@
-import { Container, Typography } from "@mui/material";
+import { Box, Container, Typography } from "@mui/material";
 import Grid from "@mui/material/Grid2";
 // Import Grid2
-import AttackStatsCard from "./components/AttackStatsCard";
-import AttackVolumeCard from "./components/AttackVolumeCard";
-import DurationCard from "./components/DurationCard";
-import MetricCard from "./components/MetricCard";
+import MitigatedAttacks from "./components/MitigatedAttacks";
+import AttackVolumeCard from "./components/AttackVolume/AttackVolumeCard";
+import DurationCard from "./components/DurationCard/DurationCard";
+import AttackSumCard from "./components/AttacksSum/Card";
+import AttacksSumContainer from "./components/AttacksSum/Container";
 
 export default function HomePage() {
   return (
@@ -18,22 +19,45 @@ export default function HomePage() {
       <Container maxWidth="lg" sx={{ mt: 4 }}>
         <Grid container spacing={3}>
           {/* First Row */}
-          <Grid size={{ xs: 12, md: 4 }}>
-            <AttackStatsCard />
-          </Grid>
-          <Grid size={{ xs: 12, md: 5 }}>
-            <MetricCard
-              title="Cumulative Sum of Mitigated DDoS Attacks"
-              value={66455.45}
-              unit="Billion Packets"
-            />
-            <MetricCard title="" value={68.72} unit="Peta Bytes" />
-          </Grid>
-          <Grid size={{ xs: 12, md: 3 }}>
-            <AttackVolumeCard maxVolume={831.6} unit="Gbps" />
+          <Grid size={12}>
+            <Box
+              sx={{
+                display: "flex",
+                flexDirection: { md: "column", lg: "row" },
+                gap: 2,
+              }}
+            >
+              <Grid size={{ xs: 12, lg: 4 }}>
+                <MitigatedAttacks />
+              </Grid>
+              <Grid size={{ xs: 12, lg: 8 }}>
+                <AttackVolumeCard maxVolume={831.6} unit="Gbps" />
+              </Grid>
+            </Box>
           </Grid>
 
           {/* Second Row */}
+          <Grid size={12}>
+            <AttacksSumContainer title="Cumulative Sum of Mitigated DDoS Attacks">
+              <Box
+                sx={{
+                  display: "flex",
+                  flexDirection: { md: "column", lg: "row" },
+                  gap: 2,
+                }}
+              >
+                <Grid size={{ sm: 12, md: 12, lg: 6 }}>
+                  <AttackSumCard value={66455.45} unit="Billion Packets" />
+                </Grid>
+                <Grid size={{ sm: 12, md: 12, lg: 6 }}>
+                  <AttackSumCard value={68.72} unit="Peta Bytes" />
+                </Grid>
+              </Box>
+            </AttacksSumContainer>
+          </Grid>
+
+
+          {/* Third Row */}
           <Grid size={12}>
             <DurationCard days={56} hours={15} minutes={55} />
           </Grid>

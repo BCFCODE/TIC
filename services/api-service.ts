@@ -7,6 +7,15 @@ class ApiService {
     })
       .then((res) => res.json())
       .catch(() => ({ error: `Failed to fetch count chart` }));
+
+  getPPSsum = async (): Promise<
+    { count: number; sum: number } | { error: string }
+  > =>
+    await fetch(`${this.endpoint}/sum-pps`, {
+      cache: "no-store",
+    })
+      .then((res) => res.json())
+      .catch(() => ({ error: `Failed to fetch sum pps` }));
 }
 
 export default ApiService;
