@@ -23,10 +23,10 @@ export default async function MitigatedAttacks() {
     >
       <CardContent>
         <TrendingUpIcon sx={{ color: "#6e7582", fontSize: 48 }} />
-        <Typography variant="h4" sx={{ color: "#6ee7b7", fontWeight: "bold" }}>
+        <Typography variant="h3" sx={{ color: "#6ee7b7", fontWeight: "bold" }}>
           {"count" in response ? response.count : null}
         </Typography>
-        <Typography variant="body2">
+        <Typography variant="body2" component='div'>
           Number Of{" "}
           <Typography component="span" style={{ color: "#6ee7b7" }}>
             Mitigated

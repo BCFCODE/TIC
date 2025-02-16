@@ -6,6 +6,7 @@ import AttackVolumeCard from "./components/AttackVolume/AttackVolumeCard";
 import DurationCard from "./components/DurationCard/DurationCard";
 import AttackSumCard from "./components/AttacksSum/Card";
 import AttacksSumContainer from "./components/AttacksSum/Container";
+import SumOfAttacks from "./components/AttacksSum";
 
 export default function HomePage() {
   return (
@@ -38,24 +39,15 @@ export default function HomePage() {
 
           {/* Second Row */}
           <Grid size={12}>
-            <AttacksSumContainer title="Cumulative Sum of Mitigated DDoS Attacks">
-              <Box
-                sx={{
-                  display: "flex",
-                  flexDirection: { md: "column", lg: "row" },
-                  gap: 2,
-                }}
-              >
-                <Grid size={{ sm: 12, md: 12, lg: 6 }}>
-                  <AttackSumCard value={66455.45} unit="Billion Packets" />
-                </Grid>
-                <Grid size={{ sm: 12, md: 12, lg: 6 }}>
-                  <AttackSumCard value={68.72} unit="Peta Bytes" />
-                </Grid>
-              </Box>
-            </AttacksSumContainer>
+            <SumOfAttacks>
+              <Grid size={{ sm: 12, md: 12, lg: 6 }}>
+                <AttackSumCard value={66455.45} unit="Billion Packets" />
+              </Grid>
+              <Grid size={{ sm: 12, md: 12, lg: 6 }}>
+                <AttackSumCard value={68.72} unit="Peta Bytes" />
+              </Grid>
+            </SumOfAttacks>
           </Grid>
-
 
           {/* Third Row */}
           <Grid size={12}>

@@ -41,7 +41,7 @@ export default function AttackSumCard({ value, unit }: Props) {
         </Box>
 
         {/* Unit Label */}
-        <Typography variant="body2" sx={{ opacity: 0.8 }}>
+        <Typography variant="body2" sx={{ opacity: 0.8 }} component='div'>
           Total Number of{" "}
           <Typography
             component="span"

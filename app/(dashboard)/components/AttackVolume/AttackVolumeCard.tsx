@@ -58,7 +58,7 @@ export default function AttackVolumeCard({
         </Typography>
 
         {/* Subtitle */}
-        <Typography variant="body2" sx={{ mb: 2 }}>
+        <Typography variant="body2" sx={{ mb: 2 }} component='div'>
           Maximum Volume
           <Typography>
             Of The{" "}
