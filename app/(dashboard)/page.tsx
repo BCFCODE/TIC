@@ -2,12 +2,11 @@ import { Box, Container, Typography } from "@mui/material";
 import Grid from "@mui/material/Grid2";
 // Import Grid2
 import SumOfAttacks from "./components/AttacksSum";
-import AttackSumCard from "./components/AttacksSum/Card";
-import AttackVolumeCard from "./components/MaximumAttackVolumes/Card";
-import DurationCard from "./components/DurationCard";
-import MitigatedAttacks from "./components/MitigatedAttacks";
 import BillionPackets from "./components/AttacksSum/BillionPackets";
 import PetaBytes from "./components/AttacksSum/PetaBytes";
+import DurationCard from "./components/DurationCard";
+import AttackVolumeCard from "./components/MaximumAttackVolumes/Card";
+import MitigatedAttacks from "./components/MitigatedAttacks";
 
 export default function HomePage() {
   return (
