@@ -1,20 +1,22 @@
 "use server";
 
-import ApiService from "@/services/api-service";
+import { getApi } from "@/services/api-service";
 import { Card } from "@mui/material";
 import formatDuration from "../utils/formatDuration";
 import Icon from "./Icon";
 import TextContent from "./TextContent";
 import TimeBoxes from "./TimeBoxes";
 
-const { getDuration } = new ApiService();
+// const { getDuration } = new ApiService();
+type DurationResponse = { duration: number } | { error: string };
 
 export default async function DurationCard() {
-  const response = await getDuration();
+  // const response = await getDuration();
+  const response = await getApi<DurationResponse>("duration");
   const ms = "error" in response ? 0 : response.duration;
   const formattedDurations = formatDuration(ms);
   const [days] = formattedDurations;
-  
+
   return (
     <Card
       sx={{

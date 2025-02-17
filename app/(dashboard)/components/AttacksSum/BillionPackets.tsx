@@ -1,13 +1,14 @@
 "use server";
-import React from "react";
-import AttackSumCard from "./Card";
-import ApiService from "@/services/api-service";
+import { getApi } from "@/services/api-service";
 import convertPacketsToBillion from "../utils/convertPacketsToBillion";
+import AttackSumCard from "./Card";
 
-const { getPPSsum } = new ApiService();
+// const { getPPSsum } = new ApiService();
+type PacketCountResponse = { count: number; sum: number } | { error: string };
 
 const BillionPackets = async () => {
-  const response = await getPPSsum();
+  // const response = await getPPSsum();
+  const response = await getApi<PacketCountResponse>("sum-pps");
 
   return (
     <AttackSumCard
