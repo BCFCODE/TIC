@@ -1,56 +1,48 @@
-import * as React from 'react';
-import { NextAppProvider } from '@toolpad/core/nextjs';
-import { AppRouterCacheProvider } from '@mui/material-nextjs/v15-appRouter';
-import DashboardIcon from '@mui/icons-material/Dashboard';
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-import LinearProgress from '@mui/material/LinearProgress'
-import type { Navigation } from '@toolpad/core/AppProvider';
-
-import theme from '../theme';
+import HomeIcon from "@mui/icons-material/Home";
+import MapIcon from "@mui/icons-material/Map";
+import { AppRouterCacheProvider } from "@mui/material-nextjs/v15-appRouter";
+import LinearProgress from "@mui/material/LinearProgress";
+import type { Navigation } from "@toolpad/core/AppProvider";
+import { NextAppProvider } from "@toolpad/core/nextjs";
+import * as React from "react";
+import theme from "../theme";
 
 const NAVIGATION: Navigation = [
   {
-    kind: 'header',
-    title: 'Main items',
+    kind: "header",
+    title: "Main items",
   },
   {
-    segment: '',
-    title: 'Dashboard',
-    icon: <DashboardIcon />,
+    segment: "",
+    title: "Home",
+    icon: <HomeIcon />,
   },
   {
-    segment: 'orders',
-    title: 'Orders',
-    icon: <ShoppingCartIcon />,
+    segment: "map",
+    title: "Map",
+    icon: <MapIcon />,
   },
 ];
 
 const BRANDING = {
-  title: 'TIC DDos Radar',
+  title: "TIC DDos Radar",
 };
 
-
-
 export default function RootLayout(props: { children: React.ReactNode }) {
-  
-
   return (
     <html lang="en" data-toolpad-color-scheme="light" suppressHydrationWarning>
       <body>
-        
-          <AppRouterCacheProvider options={{ enableCssLayer: true }}>
+        <AppRouterCacheProvider options={{ enableCssLayer: true }}>
           <React.Suspense fallback={<LinearProgress />}>
             <NextAppProvider
               navigation={NAVIGATION}
               branding={BRANDING}
-              
               theme={theme}
             >
               {props.children}
             </NextAppProvider>
-            </React.Suspense>
-          </AppRouterCacheProvider>
-        
+          </React.Suspense>
+        </AppRouterCacheProvider>
       </body>
     </html>
   );

@@ -1,13 +1,61 @@
-import * as React from 'react';
-import Typography from '@mui/material/Typography';
-import Link from 'next/link';
+import { Box, Container, Typography } from "@mui/material";
+import Grid from "@mui/material/Grid2";
+// Import Grid2
+import SumOfAttacks from "./components/AttacksSum";
+import AttackSumCard from "./components/AttacksSum/Card";
+import AttackVolumeCard from "./components/MaximumAttackVolumes/Card";
+import DurationCard from "./components/DurationCard";
+import MitigatedAttacks from "./components/MitigatedAttacks";
+import BillionPackets from "./components/AttacksSum/BillionPackets";
+import PetaBytes from "./components/AttacksSum/PetaBytes";
 
 export default function HomePage() {
-  
-
-  return (    
+  return (
+    <>
       <Typography>
-        Welcome to <Link href="https://mui.com/toolpad/core/introduction">Toolpad Core!</Link>
+        The Radar report has been extracted from the data of the DDoS detection
+        and Mitigation system, which has been deployed and operated by the TIC
+        company as the country&apos;s defense shield, providing effective
+        protection against attacks.
       </Typography>
+      <Container maxWidth="lg" sx={{ mt: 4 }}>
+        <Grid container spacing={3}>
+          {/* First Row */}
+          <Grid size={12}>
+            <Box
+              sx={{
+                display: "flex",
+                flexDirection: { md: "column", lg: "row" },
+                gap: 2,
+              }}
+            >
+              <Grid size={{ xs: 12, lg: 4 }}>
+                <MitigatedAttacks />
+              </Grid>
+              <Grid size={{ xs: 12, lg: 8 }}>
+                <AttackVolumeCard />
+              </Grid>
+            </Box>
+          </Grid>
+
+          {/* Second Row */}
+          <Grid size={12}>
+            <SumOfAttacks>
+              <Grid size={{ sm: 12, md: 12, lg: 6 }}>
+                <BillionPackets />
+              </Grid>
+              <Grid size={{ sm: 12, md: 12, lg: 6 }}>
+                <PetaBytes />
+              </Grid>
+            </SumOfAttacks>
+          </Grid>
+
+          {/* Third Row */}
+          <Grid size={12}>
+            <DurationCard />
+          </Grid>
+        </Grid>
+      </Container>
+    </>
   );
 }
