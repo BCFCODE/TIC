@@ -1,17 +1,19 @@
 "use server";
 
 // AttackVolumeCard.tsx
-import ApiService from "@/services/api-service";
+import { getApi } from "@/services/api-service";
 import { Card, CardContent } from "@mui/material";
+import convertToGbps, { Volume } from "../utils/convertToGbps";
 import TitleRow from "./TitleRow";
 import MaximumVolume from "./Volumes/MaximumValue";
 import PreviousVolumes from "./Volumes/PreviousVolumes";
-import convertToGbps from "../utils/convertToGbps";
 
-const { getAttackVolumes } = new ApiService();
+// const { getAttackVolumes } = new ApiService();
+type AttackVolumeResponse = Volume[] | { error: string };
 
 export default async function AttackVolumeCard() {
-  const response = await getAttackVolumes();
+  // const response = await getAttackVolumes();
+  const response = await getApi<AttackVolumeResponse>("top-five-lrl");
   const volumes = "error" in response ? [] : convertToGbps(response);
   const [maxVolume] = volumes;
   const [, ...previousVolumes] = volumes;

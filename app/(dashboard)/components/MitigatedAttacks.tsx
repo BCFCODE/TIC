@@ -1,13 +1,15 @@
 "use server";
 // components/MitigatedAttacks.tsx
-import ApiService from "@/services/api-service";
-import { Card, CardContent, Typography } from "@mui/material";
+import { getApi } from "@/services/api-service";
 import TrendingUpIcon from "@mui/icons-material/TrendingUp";
+import { Card, CardContent, Typography } from "@mui/material";
 
-const { getCountChart } = new ApiService();
+// const { getCountChart } = new ApiService();
+type AttackCountResponse = { count: number } | { error: string };
 
 export default async function MitigatedAttacks() {
-  const response = await getCountChart();
+  // const response = await getCountChart();
+  const response = await getApi<AttackCountResponse>("count-chart");
 
   return (
     <Card
