@@ -2,11 +2,12 @@
 
 // AttackVolumeCard.tsx
 import { getApi } from "@/services/api-service";
-import { Card, CardContent } from "@mui/material";
+import { Card, CardContent, Skeleton } from "@mui/material";
 import convertToGbps, { Volume } from "../utils/convertToGbps";
 import TitleRow from "./TitleRow";
 import MaximumVolume from "./Volumes/MaximumValue";
 import PreviousVolumes from "./Volumes/PreviousVolumes";
+import { Suspense } from "react";
 
 // const { getAttackVolumes } = new ApiService();
 type AttackVolumeResponse = Volume[] | { error: string };
@@ -37,8 +38,6 @@ export default async function AttackVolumeCard() {
         <TitleRow />
 
         <MaximumVolume {...{ maxVolume, unit }} />
-
-        {/* Previous Volumes Row */}
         <PreviousVolumes {...{ previousVolumes, unit }} />
       </CardContent>
     </Card>

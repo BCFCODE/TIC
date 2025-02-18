@@ -1,4 +1,4 @@
-import { Box, Container, Typography } from "@mui/material";
+import { Box, Container, Skeleton, Typography } from "@mui/material";
 import Grid from "@mui/material/Grid2";
 // Import Grid2
 import SumOfAttacks from "./components/AttacksSum";
@@ -7,6 +7,7 @@ import PetaBytes from "./components/AttacksSum/PetaBytes";
 import DurationCard from "./components/DurationCard";
 import AttackVolumeCard from "./components/MaximumAttackVolumes/Card";
 import MitigatedAttacks from "./components/MitigatedAttacks";
+import { Suspense } from "react";
 
 export default function HomePage() {
   return (
@@ -32,26 +33,32 @@ export default function HomePage() {
                 <MitigatedAttacks />
               </Grid>
               <Grid size={{ xs: 12, lg: 8 }}>
-                <AttackVolumeCard />
+                <Suspense fallback={<Skeleton />}>
+                  <AttackVolumeCard />
+                </Suspense>
               </Grid>
             </Box>
           </Grid>
 
           {/* Second Row */}
           <Grid size={12}>
-            <SumOfAttacks>
-              <Grid size={{ sm: 12, md: 12, lg: 6 }}>
-                <BillionPackets />
-              </Grid>
-              <Grid size={{ sm: 12, md: 12, lg: 6 }}>
-                <PetaBytes />
-              </Grid>
-            </SumOfAttacks>
+            <Suspense fallback={<Skeleton />}>
+              <SumOfAttacks>
+                <Grid size={{ sm: 12, md: 12, lg: 6 }}>
+                  <BillionPackets />
+                </Grid>
+                <Grid size={{ sm: 12, md: 12, lg: 6 }}>
+                  <PetaBytes />
+                </Grid>
+              </SumOfAttacks>
+            </Suspense>
           </Grid>
 
           {/* Third Row */}
           <Grid size={12}>
-            <DurationCard />
+            <Suspense fallback={<Skeleton />}>
+              <DurationCard />
+            </Suspense>
           </Grid>
         </Grid>
       </Container>
